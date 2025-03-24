@@ -1,101 +1,78 @@
 import Image from "next/image";
+import Carousel from "../components/carousel";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  // Lista de skills (ícones)
+  const skills = [
+    { src: "/assets/item1-1.png", alt: "Skill 1 bg-zinc-100" },
+    { src: "/assets/item1-2.png", alt: "Skill 2 " },
+    { src: "/assets/item1-3.png", alt: "Skill 3" },
+    { src: "/assets/item1-4.png", alt: "Skill 4" },
+    { src: "/assets/item1-5.png", alt: "Skill 5" },
+    { src: "/assets/item1-6.png", alt: "Skill 6" },
+    { src: "/assets/item1-7.png", alt: "Skill 7" },
+    { src: "/assets/item1-8.png", alt: "Skill 8" },
+    { src: "/assets/item1-9.png", alt: "Skill 9" },
+    { src: "/assets/item1-10.png", alt: "Skill 10" },
+    // Adicione mais skills conforme necessário
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // Lista de projetos (imagens)
+  const projetos = [
+    { src: "/assets/item2_3.jpg", alt: "Projeto 1" },
+    { src: "/assets/item2_4.jpg", alt: "Projeto 2" },
+    { src: "/assets/item2_8.jpg", alt: "Projeto 3" },
+    { src: "/assets/Projeto-mario-bros.png", alt: "Projeto 4" },
+    { src: "/assets/clima-tempo.png", alt: "Projeto 5" },
+    { src: "/assets/devbills.png", alt: "Projeto 6" },
+    { src: "/assets/DevBurguer.png", alt: "Projeto 7" },
+    { src: "/assets/item2_9.png", alt: "Projeto 8" },
+    { src: "/assets/Clone tiwtter.png", alt: "Projeto 9" },
+    // Adicione mais projetos conforme necessário
+  ];
+
+  return (
+    <div className="bg-zinc-900 text-white mx-w-screen-xl mx-auto p-5">
+      <main className="flex items-center ml-6 min-h-[100vh]">
+        <div className="Container">
+          <h1 className="text-7xl font-bold">Olá, eu sou <span className="text-blue-500">Alexsandro</span>.</h1>
+          <p className="text-2xl text-gray-300 mt-4 mb-5 max-w-[768px]">
+            Sou um Desenvolvedor FullStack, apaixonado por criar aplicações inovadoras, impactantes e com muita eficiência de grandes projetos já realizados, e obtive a oportunidade de demostrar isso, e colocar em prática todo conhecimento e habilidades
+            adquiridos durante minha jornada na plataforma do <span className="text-blue-500">Dev Club</span>, sob a mentoria do incrível <span className="text-blue-500">Rodolfo Mori</span>.</p>
+          <p className="text-lg text-gray-300">Programador Júnior - Banco de Dados Backend, com o foco Reactjs, Nextjs, Javascript, Typescript, MongoDB, Docker e soluções de alta
+            complexidade em resolver as tarefas e desafios reais que surgem no dia a dia.
+          </p>
+          <a href="/dashboard" className="mt-6 inline-block px-6 py-2 bg-blue-500 font-bold text-white rounded cursor-pointer hover:bg-blue-400 font-bold  hover:scale-115 transition-transform duration-500">Ver Projetos</a>
+        </div>
+        <div className="ml-10">
+          <Image
+            src="/image-perfil.jpg"
+            alt="Foto de perfil de Alexsandro da Silva"
+            width={500}
+            height={500}
+            className="rounded-full shadow-lg border-2 border-blue-500 hover:scale-105 transition-transform duration-400"
+          />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      <section className="bg-zinc-900 text-white">
+        <div className="Container text-center">
+          <h2 className="text-4xl font-bold mb-8">My Skills <span className="text-blue-400">end</span> Projects</h2>
+          <Carousel
+            items={skills}
+            direction="left"
+            itemWidth={200}
+            itemHeight={200}
+            className="w-full my-18"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <Carousel
+            items={projetos}
+            direction="right"
+            itemWidth={350}
+            itemHeight={350}
+            className="w-full my-18"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </section>
     </div>
   );
 }
