@@ -1,11 +1,11 @@
-@import "tailwindcss";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-
 }
- 
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -25,13 +25,13 @@ body {
 }
 
 .animate-scroll {
-  animation: scroll 15s linear infinite;
+  animation: scroll 20s linear infinite;
 }
 
 .animate-scroll-reverse {
-  animation: scroll-reverse 15s linear infinite;
+  animation: scroll-reverse 20s linear infinite;
 }
 
 .translate-cursor {
-  transform: translate(var(--cursor-x), var(--cursor-y));
+  transform: translate(-50%, -50%);
 }
