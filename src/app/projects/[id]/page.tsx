@@ -48,10 +48,10 @@ const projects: Project[] = [
   {
     id: 5,
     title: "Dev-Movies",
-    description: "Dev-Movies-Interface",
-    imageUrl: "/assets/Capa-dev-movies.png",
-    link: "https://dev-movies-react.netlify.app/",
-    details: "Dev-Movies-Interface, uma aplicação web que permite aos usuários explorar uma ampla variedade de filmes e séries. Com uma interface intuitiva e recursos de busca, os usuários podem pesquisar filmes por título, gênero ou ano de lançamento. Tecnologias Utilizadas: React.js, CSS3, JavaScript, API The Movie Database (TMDB).",
+    description: "Dev-Movies",
+    imageUrl: "/assets/DevMovies.png",
+    link: "https://dev-movies.netlify.app/",
+    details: "DevMovies é uma aplicação web que permite aos usuários explorar e descobrir filmes. Com uma interface moderna e responsiva, os usuários podem navegar por diferentes categorias, ver detalhes dos filmes, trailers e avaliações. Tecnologias Utilizadas: React.js, CSS Tailwind, API de Filmes.",
   },
   {
     id: 6,
@@ -63,6 +63,13 @@ const projects: Project[] = [
   },
   // Adicione mais projetos conforme necessário
 ];
+
+// Função para gerar os parâmetros estáticos
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id.toString(),
+  }));
+}
 
 export default function ProjectDetailsPage({ params }: { params: { id: string } }) {
   // Encontra o projeto com base no ID da URL
@@ -78,39 +85,46 @@ export default function ProjectDetailsPage({ params }: { params: { id: string } 
   }
 
   return (
-    <div className="bg-zinc-900 text-white min-h-screen p-8">
-      <div className="max-w-xl mx-auto">
-        {/* Botão de voltar */}
+    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
         <Link
-          href="/dashboard"
-          className="inline-block mb-8 px-6 py-2 bg-gray-600 text-white rounded hover:bg-blue-500 transition-colors duration-200 hover:scale-105 transition-transform duration-500"
+          href="/projects"
+          className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"
         >
-          Voltar
+          <FaArrowLeft className="mr-2" />
+          Voltar para Projetos
         </Link>
-        <h1 className="text-2xl mb-8 font-bold mt-5 ">Detalhes do <span className="text-blue-500"> Projeto</span></h1>
-        {/* Imagem do projeto */}
-        <Image
-          src={project.imageUrl}
-          alt={project.title}
-          width={900}
-          height={900}
-          className="w-full h-64 object-cover rounded-lg"
-        />
 
-        {/* Título do projeto */}
-        <h1 className="text-2xl font-bold mt-8">{project.title}</h1>
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="relative h-96">
+            <Image
+              src={project.imageUrl}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
+          </div>
 
-        {/* Descrição detalhada do projeto */}
-        <p className="text-gray-300 mt-4">{project.details}</p>
-
-        {/* Botão para visitar o projeto */}
-        <a
-          href={project.link}
-          className="inline-block mt-6 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-400 transition-colors duration-200 hover:bg-blue-400 hover:scale-105 transition-transform duration-500"
-          target="_blank"
-        >
-          Visitar Projeto
-        </a>
+          <div className="p-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              {project.title}
+            </h1>
+            <p className="text-gray-600 mb-6">{project.description}</p>
+            <div className="prose max-w-none">
+              <p className="text-gray-700">{project.details}</p>
+            </div>
+            <div className="mt-8">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Ver Projeto
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
