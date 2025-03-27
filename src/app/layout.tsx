@@ -26,25 +26,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="pt-BR">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="min-h-screen bg-white dark:bg-zinc-900">
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">
-            <Carousel items={[]}/>
-            {children}
-          </main>
-          <Cursor />
-          <Footer />
-        </div>
+      <body className="bg-zinc-900 text-white">
+        <Header />
+        <Carousel items={[]}/>
+        {children}
+        <Cursor />
+        <Footer />
       </body>
     </html>
   );
