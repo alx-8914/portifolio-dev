@@ -4,6 +4,11 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true
+  },
+  optimizeFonts: true,
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+    return config;
   }
 };
 

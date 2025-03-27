@@ -1,9 +1,7 @@
-
 import { Metadata } from "next";
 import "./globals.css";
 import Cursor from '@/components/cursor/cursor';
-
-import  Header  from "@/components/header";
+import Header from "@/components/header";
 import {Carousel} from "@/components/carousel";
 import { Footer } from "@/components/footer";
 
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
     nocache: true,
     googleBot: {
       index: true,
-      follow:true,
+      follow: true,
     }
   }
 };
@@ -33,14 +31,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`antialiased`}
-      >
-        <Header />
-        <Carousel items={[]}/>
-        {children}
-        <Cursor />
-        <Footer />
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className="min-h-screen bg-white dark:bg-zinc-900">
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            <Carousel items={[]}/>
+            {children}
+          </main>
+          <Cursor />
+          <Footer />
+        </div>
       </body>
     </html>
   );
