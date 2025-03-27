@@ -4,7 +4,16 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  @apply bg-zinc-900 text-white;
 
+}
+
+.hover-effect {
+  @apply transition-all duration-300 hover:scale-105;
+}
+
+.cursor-effect {
+  @apply absolute w-8 h-8 bg-blue-500 rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2;
 }
  
 @keyframes scroll {

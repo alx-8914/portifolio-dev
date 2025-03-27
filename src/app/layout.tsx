@@ -1,11 +1,11 @@
 
 import { Metadata } from "next";
-import "./globals.css";
-import Cursor from '@/components/cursor/cursor';
+import '../app/globals.css'
+import Cursor from '../components/cursor/cursor';
 
-import  Header  from "@/components/header";
-import {Carousel} from "@/components/carousel";
-import { Footer } from "@/components/footer";
+import  Header  from "../components/header";
+import {Carousel} from "../components/carousel";
+import { Footer } from "../components/footer";
 
 export const metadata: Metadata = {
   title: "Portfólio.dev",

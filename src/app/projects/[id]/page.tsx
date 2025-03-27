@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowLeft } from "react-icons/fa"; // Importe o ícone de seta
 
 interface Project {
   id: number;
